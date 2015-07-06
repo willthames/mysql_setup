@@ -1,0 +1,2 @@
+- name: install data
+  shell: mysql -u testing --password testing testing< setup.sql
