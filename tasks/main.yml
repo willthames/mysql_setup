@@ -1,3 +1,6 @@
-- name: copy setup.sql across
-  copy: src=setup.sql dest="{{homedir}}/setup.sql"
+- name: copy setup.sql.xz across
+  copy: src=setup.sql.xz dest="{{homedir}}/setup.sql.xz"
+
+- name: uncompress setup.sql
+  shell: chdir="{{homedir}}" creates=setup.sql unxz -c setup.sql.xz > setup.sql
   notify: install data
